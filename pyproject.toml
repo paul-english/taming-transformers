@@ -1,0 +1,51 @@
+[project]
+name = "taming-transformers"
+version = "0.1.0"
+description = ""
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "albumentations==0.4.3",
+    "einops==0.3.0",
+    "imageio-ffmpeg==0.4.2",
+    "imageio==2.9.0",
+    "more-itertools==8.0.0",
+    "numpy==1.19.2",
+    "omegaconf==2.0.0",
+    "opencv-python==4.1.2.30",
+    "pudb==2019.2",
+    "pytorch-lightning==1.0.8",
+    "streamlit==0.73.1",
+    "test-tube==0.7.5",
+    "torch==1.7.0+cu110",
+    "torchvision==0.8.1+cu110",
+    "transformers==4.3.1",
+    # https://github.com/CompVis/latent-diffusion/issues/207#issuecomment-1377329827
+    "packaging==21.3",
+    "pillow==9.5.0",
+    # Tensorboard: TypeError: MessageToJson() got an unexpected keyword argument 'including_default_value_fields'
+    "protobuf==4.25"
+]
+
+[tool.uv]
+dev-dependencies = [
+    "ipykernel>=6.29.5",
+]
+
+[tool.uv.sources]
+torch = { index = "pytorch" }
+torchvision = { index = "pytorch" }
+numpy = { index = "simple" }
+packaging = { index = "simple" }
+pillow = { index = "simple" }
+
+[[tool.uv.index]]
+name = "simple"
+url = "https://pypi.org/simple"
+default = true
+
+[[tool.uv.index]]
+name = "pytorch"
+#url = "https://download.pytorch.org/whl/torch_stable.html"
+url = "https://download.pytorch.org/whl/cu110"
+excplicit = true
